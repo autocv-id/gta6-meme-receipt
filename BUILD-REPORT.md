@@ -38,6 +38,48 @@ this repository only hands in the post's address via POST.json.
    https://x.com/helloimqmy/status/2123664049934397710
    Account verified public before posting.
 
+## v3 — density fix (20 Nov 2026, evening; NOT posted, NOT submitted)
+
+**Why:** the agent pulled v2's full judged heat from the owner status (12
+matches / 24 calls) and dissected it (`v2-judge-deepdive.md`, kept in the
+agent's workspace). Findings: density was the ONLY consistent criticism
+("dense: small type, many line items, and a long caption", cited in 6+ of
+24 calls); both draws vs the group-chat timeline archetype were order-flips
+decided on readability; the judge also caught a typo in v2's footer
+("non-refunedable") and called the X caption long. The user ordered all of
+it fixed ("perbarui dengan semua perbaikan").
+
+**What changed vs v2:**
+- 7 item lines → 5: the three GTA V lines merged into one —
+  "Grand Theft Auto V (PS3 · PS4 · PS5)" / "bought it three times · same
+  game" — $179.97. Total unchanged: $79.99 + $179.97 = $259.96.
+- "hard drive now empty" sub-line dropped (the progress bar already says
+  it).
+- Payment box 4 lines → 3: dropped "it earned real money on make.fun
+  while we waited" (redundant with the payout line).
+- Type ~25–30% bigger everywhere; the totals block sits right-aligned
+  above the payment box, never inside it.
+- Footer typo fixed: "non-refundable", verified letter by letter.
+- X caption shortened: one punchy line + link + @makefunai + play code,
+  144 X-weighted chars (v2 was 277).
+
+**How the image was made (all in-session, by the agent):** generated with
+the agent's image tool in this session, using v2's judged artifact as the
+style reference. It took 4 attempts: the first generation put the totals
+inside the payment box (text collision); an edit to fix that deleted the
+Youth line and the GTA Online sub-line; a fresh generation reproduced the
+first collision; the fourth generation (using the fixed-layout edit as its
+reference) came out clean. Output `receipt-v3.png`, 1600x1600, sha256
+`754fb43d16c79a8e0d57ce8c5e72ef6a9e06ae965c626dd2d137cb76e8c6110b`.
+Verified by the agent before handover: read at full size AND downscaled to
+512x512 (the size the judge sees) — every word legible; zoomed crops of
+the footer and payment box spell-checked letter by letter; item lines
+counted (5), payment lines counted (3), prices re-added ($259.96).
+
+**Status:** the image and the new caption (`v3-caption.txt`, in the
+agent's workspace) await the user's visual review. POST.json still points
+at the v2 post; it is updated only after the user approves the new post.
+
 ## Repository
 
 - `main.ts` — starter copier (Node 22 stdlib) plus a validation step added

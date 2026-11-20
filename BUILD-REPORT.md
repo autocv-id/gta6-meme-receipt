@@ -40,9 +40,13 @@ this repository only hands in the post's address via POST.json.
 
 ## Repository
 
-- `main.ts` — starter copier (Node 22 stdlib): copies POST.json to /output.
+- `main.ts` — starter copier (Node 22 stdlib) plus a validation step added
+  by the agent: it parses POST.json and refuses to copy a pointer whose `url`
+  is not an https://x.com/ or https://twitter.com/ post address, so a
+  malformed POST.json fails loudly instead of shipping a dead entry.
   Verified locally: `mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out
-  node main.ts` copies POST.json byte-identical.
+  node main.ts` copies POST.json byte-identical; a bad URL or malformed JSON
+  exits 1 with a clear error.
 - `POST.json` — the post's address (see above).
 - `README.md` — the competition's three make.fun badges + run instructions.
 - `LICENSE` — MIT (SPDX line included), as shipped by the kit starter.
